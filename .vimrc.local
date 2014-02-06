@@ -16,8 +16,8 @@ endif
 ""syntax enable
 
 ""color peaksea" load a colorscheme
-" colorscheme default
-color eclipse
+colorscheme default
+" color eclipse
 
 
 nmap <leader>e :CtrlP<cr>
