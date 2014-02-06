@@ -1,0 +1,68 @@
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+
+
+"syntax enable
+""hi clear
+""syntax reset
+""syntax enable
+
+""color peaksea" load a colorscheme
+" colorscheme default
+color eclipse
+
+
+nmap <leader>e :CtrlP<cr>
+nmap <leader>er :CtrlPMRUFiles<cr>
+nmap <leader>t :TagbarOpen<cr>
+
+let g:neocomplcache_enable_at_startup = 1
+
+" let g:auto_save = 1
+" let g:auto_save_no_updatetime = 1
+
+let FILETAG=expand("./tags")
+if filereadable(FILETAG)
+  set tags=tags
+endif
+
+
+let g:vdebug_keymap = {
+\    "run" : "<F5>",
+\    "run_to_cursor" : "<F9>",
+\    "step_over" : "<F2>",
+\    "step_into" : "<F3>",
+\    "step_out" : "<F4>",
+\    "close" : "<F6>",
+\    "detach" : "<F7>",
+\    "set_breakpoint" : "<Leader>vb",
+\    "get_context" : "<F11>",
+\    "eval_under_cursor" : "<Leader>vc",
+\    "eval_visual" : "<Leader>vv"
+\}
+
+let g:vdebug_options = {
+\    "port" : 9000,
+\    "timeout" : 30,
+\    "server" : 'localhost',
+\    "on_close" : 'detach',
+\    "break_on_open" : 1,
+\    "ide_key" : '',
+\    "debug_window_level" : 0,
+\    "debug_file_level" : 0,
+\    "debug_file" : "",
+\    "path_maps" : {},
+\    "watch_window_style" : 'expanded',
+\    "marker_default" : '⬦',
+\    "marker_closed_tree" : '▸',
+\    "marker_open_tree" : '▾',
+\    "continuous_mode"  : 0
+\}

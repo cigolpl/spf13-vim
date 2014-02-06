@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ############################  SETUP PARAMETERS
 app_name='spf13-vim'
-[ -z "$git_uri" ] && git_uri='https://github.com/spf13/spf13-vim.git'
+[ -z "$git_uri" ] && git_uri='https://github.com/cigolpl/spf13-vim.git'
 git_branch='3.0'
 debug_mode='0'
 fork_maintainer='0'
@@ -115,8 +115,15 @@ create_symlinks() {
     lnif "$endpath/.vimrc.before"       "$HOME/.vimrc.before"
     lnif "$endpath/.vim"                "$HOME/.vim"
 
+
+    # mateusz dodal
+    lnif "$endpath/.vimrc.local"              "$HOME/.vimrc.local"
+    lnif "$endpath/.vimrc.bundles.local"      "$HOME/.vimrc.bundles.local"
+    lnif "$endpath/.vimrc.before.local"       "$HOME/.vimrc.before.local"
+
+
     # Useful for fork maintainers
-    touch  "$HOME/.vimrc.local"
+    #touch  "$HOME/.vimrc.local"
 
     if [ -e "$endpath/.vimrc.fork" ]; then
         ln -sf "$endpath/.vimrc.fork" "$HOME/.vimrc.fork"
